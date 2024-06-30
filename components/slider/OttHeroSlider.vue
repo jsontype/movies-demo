@@ -412,29 +412,29 @@
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Controller, Thumbs, EffectFade } from "swiper";
-import CustomButton from "../CustomButton.vue";
-import { ref, computed, watch } from "vue";
-import { useSetting } from "../../store/setting/index";
-const store = useSetting();
-const rtl = computed(() => store.theme_scheme_direction_value);
-const render = ref(true);
+import { Swiper, SwiperSlide } from "swiper/vue"
+import { Navigation, Controller, Thumbs, EffectFade } from "swiper"
+import CustomButton from "../CustomButton.vue"
+import { ref, computed, watch } from "vue"
+import { useSetting } from "../../store/setting/index"
+const store = useSetting()
+const rtl = computed(() => store.theme_scheme_direction_value)
+const render = ref(true)
 watch(
   () => rtl.value,
   () => {
-    thumbsSwiper.value = null;
-    render.value = false;
+    thumbsSwiper.value = null
+    render.value = false
     setTimeout(() => {
-      render.value = true;
-    }, 0);
+      render.value = true
+    }, 0)
   }
-);
+)
 
 // Swiper Modules
-const modules = [Navigation, Controller, Thumbs, EffectFade];
-const thumbsSwiper = ref(null);
+const modules = [Navigation, Controller, Thumbs, EffectFade]
+const thumbsSwiper = ref(null)
 const setThumbsSwiper = (swiper) => {
-  thumbsSwiper.value = swiper;
-};
+  thumbsSwiper.value = swiper
+}
 </script>
